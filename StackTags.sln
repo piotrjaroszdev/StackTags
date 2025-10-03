@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "stacktags.client", "stacktags.client\stacktags.client.esproj", "{08619964-EDE5-7A48-59E5-0D62909CBB02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackTags.Server", "StackTags.Server\StackTags.Server.csproj", "{F6EB9459-6C4F-42E9-B404-E2F273232FA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08619964-EDE5-7A48-59E5-0D62909CBB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08619964-EDE5-7A48-59E5-0D62909CBB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08619964-EDE5-7A48-59E5-0D62909CBB02}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{08619964-EDE5-7A48-59E5-0D62909CBB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08619964-EDE5-7A48-59E5-0D62909CBB02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08619964-EDE5-7A48-59E5-0D62909CBB02}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F6EB9459-6C4F-42E9-B404-E2F273232FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EB9459-6C4F-42E9-B404-E2F273232FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EB9459-6C4F-42E9-B404-E2F273232FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EB9459-6C4F-42E9-B404-E2F273232FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8426C4F9-112D-4DA4-A43A-5FCDD36FB5FF}
+	EndGlobalSection
+EndGlobal

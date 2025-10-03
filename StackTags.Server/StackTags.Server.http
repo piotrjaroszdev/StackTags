@@ -1,0 +1,6 @@
+@StackTags.Server_HostAddress = http://localhost:5043
+
+GET {{StackTags.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
