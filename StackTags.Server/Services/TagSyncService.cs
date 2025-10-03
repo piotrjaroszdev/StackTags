@@ -23,6 +23,8 @@ namespace StackTags.Server.Services
             while (tags.Count < 1000)
             {
                 var client = _httpFactory.CreateClient();
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("StackTagsApp/1.0");
+
                 var url = $"https://api.stackexchange.com/2.3/tags?site=stackoverflow&pagesize=100&page={page}";
                 var response = await client.GetFromJsonAsync<ApiResponse>(url);
                 tags.AddRange(response.Items.Select(t => new Tag

@@ -17,11 +17,14 @@ builder.Services.AddScoped<ITagRepository, TagRepository>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost", policy =>
-        policy.WithOrigins("https://127.0.0.1:62447/")
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("https://127.0.0.1:62447", "http://localhost:4200")
               .AllowAnyHeader()
-              .AllowAnyMethod());
+              .AllowAnyMethod();
+    });
 });
+
 
 
 
@@ -31,7 +34,7 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-app.UseCors("AllowLocalhost");
+app.UseCors("AllowFrontend");
 app.UseDefaultFiles();
 app.MapStaticAssets();
 

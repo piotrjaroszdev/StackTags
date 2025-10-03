@@ -1,0 +1,22 @@
+<div>
+  <button (click)="sync()">🔄 Synchronizuj z StackOverflow</button>
+  <table>
+    <thead>
+      <tr>
+        <th (click)="changeSort('name')">Tag 🔽</th>
+        <th>Count</th>
+        <th (click)="changeSort('share')">Share % 🔽</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tag of tags">
+        <td>{{ tag.name }}</td>
+        <td>{{ tag.count }}</td>
+        <td>{{ tag.share | number:'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="prevPage()">⬅️</button>
+  <span>Strona {{ page }}</span>
+  <button (click)="nextPage()">➡️</button>
+</div>
