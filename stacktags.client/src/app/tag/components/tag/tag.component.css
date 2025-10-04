@@ -1,0 +1,31 @@
+:host {
+	display: block;
+	padding: 16px;
+}
+
+.tag-container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 12px;
+}
+
+table {
+	width: 100%;
+}
+
+.pager {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 12px;
+}
+
+.page-label {
+	margin: 0 8px;
+}
+

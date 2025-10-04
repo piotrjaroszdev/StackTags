@@ -1,6 +1,11 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
+import { TagComponent } from './tag/components/tag/tag.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -9,8 +14,14 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [HttpClientTestingModule]
+      declarations: [AppComponent, TagComponent],
+      imports: [
+        HttpClientTestingModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatButtonModule,
+        MatIconModule
+      ]
     }).compileComponents();
   });
 

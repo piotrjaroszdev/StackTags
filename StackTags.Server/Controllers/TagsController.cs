@@ -41,4 +41,4 @@ namespace StackTags.Server.Controllers
         }
     }
 
-    }
+}

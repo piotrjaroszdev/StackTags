@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TagComponent } from './tag.component';
 
@@ -8,7 +13,8 @@ describe('TagComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TagComponent]
+      declarations: [TagComponent],
+      imports: [HttpClientTestingModule, BrowserAnimationsModule, MatTableModule, MatButtonModule, MatIconModule]
     })
     .compileComponents();
 

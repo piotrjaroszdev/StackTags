@@ -1,22 +1,42 @@
-<div>
-  <button (click)="sync()">🔄 Synchronizuj z StackOverflow</button>
-  <table>
-    <thead>
-      <tr>
-        <th (click)="changeSort('name')">Tag 🔽</th>
-        <th>Count</th>
-        <th (click)="changeSort('share')">Share % 🔽</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let tag of tags">
-        <td>{{ tag.name }}</td>
-        <td>{{ tag.count }}</td>
-        <td>{{ tag.share | number:'1.2-2' }}</td>
-      </tr>
-    </tbody>
+<div class="tag-container">
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="sync()">
+      <mat-icon>sync</mat-icon>
+      Synchronizuj z StackOverflow
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="tags" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef (click)="changeSort('name')">Tag</th>
+      <td mat-cell *matCellDef="let tag">{{ tag.name }}</td>
+    </ng-container>
+
+    <!-- Count Column -->
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef>Count</th>
+      <td mat-cell *matCellDef="let tag">{{ tag.count }}</td>
+    </ng-container>
+
+    <!-- Share Column -->
+    <ng-container matColumnDef="share">
+      <th mat-header-cell *matHeaderCellDef (click)="changeSort('share')">Share %</th>
+      <td mat-cell *matCellDef="let tag">{{ tag.share | number:'1.2-2' }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name','count','share']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name','count','share'];"></tr>
   </table>
-  <button (click)="prevPage()">⬅️</button>
-  <span>Strona {{ page }}</span>
-  <button (click)="nextPage()">➡️</button>
+
+  <div class="pager">
+    <button mat-icon-button (click)="prevPage()" [disabled]="page <= 1">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span class="page-label">Strona {{ page }}</span>
+    <button mat-icon-button (click)="nextPage()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
 </div>
