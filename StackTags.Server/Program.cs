@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using StackTags.Server.Infrastructure;
+using StackTags.Server.Data;
 using StackTags.Server.Repositories;
 using StackTags.Server.Services; // Add this using directive to resolve 'UseSqlServer'
 
@@ -32,6 +32,12 @@ builder.Services.AddCors(options =>
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TagDbContext>();
+    db.Database.Migrate();
+}
 
 app.UseCors("AllowPolicy");
 app.UseDefaultFiles();

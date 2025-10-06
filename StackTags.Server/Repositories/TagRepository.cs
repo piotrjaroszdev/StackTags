@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StackTags.Server.Infrastructure;
+using StackTags.Server.Data;
+using StackTags.Server.Data.Models;
 using StackTags.Server.Models;
 
 namespace StackTags.Server.Repositories

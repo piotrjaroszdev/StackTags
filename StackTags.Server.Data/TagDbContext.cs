@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StackTags.Server.Models;
-using System.Collections.Generic;
+using StackTags.Server.Data.Models;
 
-namespace StackTags.Server.Infrastructure
+namespace StackTags.Server.Data
 {
     public class TagDbContext : DbContext
     {

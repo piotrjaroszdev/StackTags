@@ -29,6 +29,7 @@
     <ProjectReference Include="..\stacktags.client\stacktags.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\StackTags.Server.Data\StackTags.Server.Data.csproj" />
   </ItemGroup>
 
 </Project>

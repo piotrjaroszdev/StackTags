@@ -1,4 +1,5 @@
-﻿using StackTags.Server.Models;
+﻿using StackTags.Server.Data.Models;
+using StackTags.Server.Models;
 using StackTags.Server.Repositories;
 
 namespace StackTags.Server.Services

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StackTags.Server.Infrastructure;
+using StackTags.Server.Data;
 
 #nullable disable
 
-namespace StackTags.Server.Migrations
+namespace StackTags.Server.Data.Migrations
 {
     [DbContext(typeof(TagDbContext))]
     partial class TagDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace StackTags.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("StackTags.Server.Models.Tag", b =>
+            modelBuilder.Entity("StackTags.Server.Data.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

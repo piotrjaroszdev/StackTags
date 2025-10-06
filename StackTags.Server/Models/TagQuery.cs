@@ -7,5 +7,4 @@
         public string SortBy { get; set; } = "name";
         public string Order { get; set; } = "asc";
     }
-
 }

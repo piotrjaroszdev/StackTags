@@ -1,4 +1,4 @@
-﻿namespace StackTags.Server.Models
+﻿namespace StackTags.Server.Data.Models
 {
     public class Tag
     {

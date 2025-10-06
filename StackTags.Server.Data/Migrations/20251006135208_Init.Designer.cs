@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StackTags.Server.Infrastructure;
+using StackTags.Server.Data;
 
 #nullable disable
 
-namespace StackTags.Server.Migrations
+namespace StackTags.Server.Data.Migrations
 {
     [DbContext(typeof(TagDbContext))]
-    [Migration("20251003123335_init")]
-    partial class init
+    [Migration("20251006135208_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace StackTags.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("StackTags.Server.Models.Tag", b =>
+            modelBuilder.Entity("StackTags.Server.Data.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
