@@ -15,18 +15,17 @@ builder.Services.AddDbContext<TagDbContext>(opt =>
 builder.Services.AddScoped<ITagSyncService, TagSyncService>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowPolicy", policy =>
     {
-        policy.WithOrigins("https://127.0.0.1:62447", "http://localhost:4200")
+        policy.WithOrigins(allowedOrigins)
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
-
-
-
 
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -34,7 +33,7 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-app.UseCors("AllowFrontend");
+app.UseCors("AllowPolicy");
 app.UseDefaultFiles();
 app.MapStaticAssets();
 
