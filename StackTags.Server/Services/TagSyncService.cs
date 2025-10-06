@@ -7,11 +7,12 @@ namespace StackTags.Server.Services
     {
         private readonly ITagRepository _repo;
         private readonly IHttpClientFactory _httpFactory;
-
-        public TagSyncService(ITagRepository repo, IHttpClientFactory httpFactory)
+        private readonly IConfiguration _config;
+        public TagSyncService(ITagRepository repo, IHttpClientFactory httpFactory, IConfiguration config)
         {
             _repo = repo;
             _httpFactory = httpFactory;
+            _config = config;
         }
 
         public async Task SyncTagsAsync(bool forceReload = false)
@@ -20,12 +21,17 @@ namespace StackTags.Server.Services
 
             var tags = new List<Tag>();
             int page = 1;
+            int pageSize = _config.GetValue<int>("StackExchange:PageSize");
+            int maxTags = _config.GetValue<int>("StackExchange:MaxTags");
+            string baseUrl = _config.GetValue<string>("StackExchange:BaseUrl");
+            string site = _config.GetValue<string>("StackExchange:Site");
+            string userAgent = _config.GetValue<string>("StackExchange:UserAgent");
             while (tags.Count < 1000)
             {
                 var client = _httpFactory.CreateClient();
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("StackTagsApp/1.0");
 
-                var url = $"https://api.stackexchange.com/2.3/tags?site=stackoverflow&pagesize=100&page={page}";
+                var url = $"{baseUrl}/tags?site={site}&pagesize={pageSize}&page={page}";
                 var response = await client.GetFromJsonAsync<ApiResponse>(url);
                 tags.AddRange(response.Items.Select(t => new Tag
                 {

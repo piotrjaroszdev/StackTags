@@ -31,14 +31,5 @@ namespace StackTags.Server.Controllers
             await _sync.SyncTagsAsync(forceReload: true);
             return NoContent();
         }
-
-
-        [HttpGet("test")]
-        public async Task<IActionResult> test()
-        {
-            //var result = await _repo.GetPagedAsync(query);
-            return Ok(null);
-        }
     }
-
 }
