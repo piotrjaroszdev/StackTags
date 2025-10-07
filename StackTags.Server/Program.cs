@@ -33,11 +33,15 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+if (app.Environment.IsDevelopment())
 {
-    var db = scope.ServiceProvider.GetRequiredService<TagDbContext>();
-    db.Database.Migrate();
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<TagDbContext>();
+        db.Database.Migrate();
+    }
 }
+
 
 app.UseCors("AllowPolicy");
 app.UseDefaultFiles();

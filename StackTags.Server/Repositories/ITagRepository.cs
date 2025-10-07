@@ -9,5 +9,4 @@ namespace StackTags.Server.Repositories
         Task SaveTagsAsync(IEnumerable<Tag> tags);
         Task<IEnumerable<Tag>> GetPagedAsync(TagQuery query);
     }
-
 }

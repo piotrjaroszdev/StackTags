@@ -3,14 +3,13 @@ using StackTags.Server.Data;
 using StackTags.Server.Data.Models;
 using StackTags.Server.Models;
 using StackTags.Server.Repositories;
-using Xunit;
 
 public class TagRepositoryTests
 {
     private TagDbContext GetDbContext()
     {
         var options = new DbContextOptionsBuilder<TagDbContext>()
-            .UseInMemoryDatabase(databaseName: "TestDb") // This requires the Microsoft.EntityFrameworkCore.InMemory package
+            .UseInMemoryDatabase(databaseName: "TestDb") 
             .Options;
         return new TagDbContext(options);
     }
