@@ -8,15 +8,19 @@ services:
     ports:
       - "8080:8080"
     environment:
-      # Example environment variable for connection string
       - ASPNETCORE_ENVIRONMENT=Development
-      # Use SQL Server container (sqlserver) instead of localhost so the app container can reach the DB.
       - ConnectionStrings__Default=Server=sqlserver,1433;Database=StackTagsDb;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=true;
     depends_on:
       - sqlserver
-    # Uncomment and configure if you add a SQL Server container
-    # depends_on:
-    #   - sqlserver
+
+  stacktags-client:
+    build:
+      context: ./stacktags.client
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - stacktags-server
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
