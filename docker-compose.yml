@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: StackTags.Server/Dockerfile
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       # Example environment variable for connection string
       - ASPNETCORE_ENVIRONMENT=Development
