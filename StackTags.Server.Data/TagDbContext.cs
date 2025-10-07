@@ -8,5 +8,4 @@ namespace StackTags.Server.Data
         public DbSet<Tag> Tags { get; set; }
         public TagDbContext(DbContextOptions<TagDbContext> options) : base(options) { }
     }
-
 }

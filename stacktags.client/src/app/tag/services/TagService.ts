@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Tag } from "../model/Tag";
+import { Tag } from "../models/Tag";
 import { Observable } from "rxjs";
 import { environment } from "../../../environments/environment";
 

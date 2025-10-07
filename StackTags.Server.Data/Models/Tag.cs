@@ -7,5 +7,4 @@
         public int Count { get; set; }
         public double Share { get; set; }
     }
-
 }
