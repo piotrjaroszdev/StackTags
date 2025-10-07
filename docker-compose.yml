@@ -10,7 +10,30 @@ services:
     environment:
       # Example environment variable for connection string
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__Default=Server=host.docker.internal;Database=StackTagsDb;Trusted_Connection=True;TrustServerCertificate=true;
+      # Use SQL Server container (sqlserver) instead of localhost so the app container can reach the DB.
+      - ConnectionStrings__Default=Server=sqlserver,1433;Database=StackTagsDb;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=true;
+    depends_on:
+      - sqlserver
     # Uncomment and configure if you add a SQL Server container
     # depends_on:
     #   - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: stacktags-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+      - SA_PASSWORD=YourStrong!Passw0rd
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "YourStrong!Passw0rd", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+volumes:
+  mssql-data:
